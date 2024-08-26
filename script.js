@@ -8,7 +8,8 @@ async function followPeople() {
   const unfollowedButtons = Array.from(document.querySelectorAll('button')).filter(button => 
     button.textContent.trim().toLowerCase() === 'follow' &&
     button.getAttribute('data-testid') && 
-    button.getAttribute('data-testid').includes('-follow')
+    button.getAttribute('data-testid').includes('-follow') &&
+    !button.textContent.trim().toLowerCase().includes('following')
   );
   
   const limit = Math.min(unfollowedButtons.length, 10);
